@@ -1,0 +1,238 @@
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>{{job.job_title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb">
+                                    <img [src]="job.logo" alt="{{job.id}}">
+                                </div>
+                                <div class="jobs_conetent">
+                                    <a routerLink="/job-details/{{job.id}}"><h4>{{job.job_title}}</h4></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="location">
+                                            <p> <i class="fa fa-map-marker"></i> {{job.location}}</p>
+                                        </div>
+                                        <div class="location">
+                                            <p> <i class="fa fa-clock-o"></i> {{job.job_type}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                    <a class="heart_mark" href="#editJobModal" class="edit" data-toggle="modal"> <i class="ti-heart"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <div class="single_wrap">
+                            <h4>Job description</h4>
+                            <p>{{job.job_descrip}}</p>
+                        </div>
+                    </div>
+                    <div class="apply_job_form white-bg">
+                        <h4>Apply for the job</h4>
+                        <form [formGroup]="candidature">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="Your name" formControlName="name">
+                                    </div>
+                                    <div *ngIf="candidature.controls['name'].invalid&&(candidature.controls['name'].touched||candidature.controls['name'].dirty)" >
+                                        <div *ngIf="candidature.controls['name'].errors?.['required']" style="color: crimson;"  >
+                                          Name is required
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="Email" formControlName="email">
+                                    </div>
+                                    <div *ngIf="candidature.controls['email'].invalid&&(candidature.controls['email'].touched||candidature.controls['email'].dirty)" >
+                                        <div *ngIf="candidature.controls['email'].errors?.['required']" style="color: crimson;"  >
+                                          Email is required
+                                        </div>
+                                        <div *ngIf="candidature.controls['email'].errors?.['email']" style="color: crimson;"  >
+                                            Email invalid
+                                          </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="photo">
+                                    </div>
+                                    
+                                        
+                                    
+                                </div> -->
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="photo" formControlName="photo">
+                                    </div>
+                                    <div *ngIf="candidature.controls['photo'].invalid&&(candidature.controls['photo'].touched||candidature.controls['photo'].dirty)" >
+                                    <div *ngIf="candidature.controls['photo'].errors?.['required']" style="color: crimson;"  >
+                                        photo is required
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="Job title" formControlName="job_title">
+                                    </div>
+                                    <div *ngIf="candidature.controls['job_title'].invalid&&(candidature.controls['job_title'].touched||candidature.controls['job_title'].dirty)" >
+                                    <div *ngIf="candidature.controls['job_title'].errors?.['required']" style="color: crimson;"  >
+                                        Job Title is required
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="LinkedIn link" formControlName="linkedIn">
+                                    </div>
+                                    <div *ngIf="candidature.controls['linkedIn'].invalid&&(candidature.controls['linkedIn'].touched||candidature.controls['linkedIn'].dirty)" >
+                                    <div *ngIf="candidature.controls['linkedIn'].errors?.['required']" style="color: crimson;"  >
+                                        LinkedIn Link is required
+                                      </div>
+                                      </div>
+                                </div>
+                                <!-- <div class="col-md-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                          </button>
+                                        </div>
+                                        <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                                          <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
+                                        </div>
+                                        
+                                      </div>
+                                </div>  -->
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <input type="text" placeholder="CV" formControlName="cv">
+                                    </div>
+                                    <div *ngIf="candidature.controls['cv'].invalid&&(candidature.controls['cv'].touched||candidature.controls['cv'].dirty)" >
+                                    <div *ngIf="candidature.controls['cv'].errors?.['required']" style="color: crimson;"  >
+                                        CV is required
+                                      </div>
+                                      </div>
+                                </div>
+    
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter" formControlName="coverLettre"></textarea>
+                                    </div>
+                                    <div *ngIf="candidature.controls['coverLettre'].invalid&&(candidature.controls['coverLettre'].touched||candidature.controls['coverLettre'].dirty)" >
+                                    <div *ngIf="candidature.controls['coverLettre'].errors?.['required']" style="color: crimson;"  >
+                                        coverLettre is required
+                                      </div>
+                                      </div>
+                                </div>
+                                
+                                <!-- <div class="col-md-12">
+                                    <div class="input_field" formControlName="coverLettre">
+                                        <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"></textarea>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-12">
+                                    <div class="submit_btn">
+                                        <button class="boxed-btn3 w-100" (click)="apply()">Apply Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Job Summery</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>Published on: <span>12 Nov, 2019</span></li>
+                                <li>Location: <span>{{job.location}}</span></li>
+                                <li>Job Nature: <span> {{job.job_type}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="job_location_wrap">
+                        <div class="job_lok_inner">
+                            <div id="map" style="height: 200px;"></div>
+                            <script>
+                              function initMap() {
+                                var uluru = {lat: -25.363, lng: 131.044};
+                                var grayStyles = [
+                                  {
+                                    featureType: "all",
+                                    stylers: [
+                                      { saturation: -90 },
+                                      { lightness: 50 }
+                                    ]
+                                  },
+                                  {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
+                                ];
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                  center: {lat: -31.197, lng: 150.744},
+                                  zoom: 9,
+                                  styles: grayStyles,
+                                  scrollwheel:  false
+                                });
+                              }
+                              
+                            </script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
+                            
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal HTML job -->
+<div id="editJobModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form >
+				<div class="modal-header">						
+					<h4 class="modal-title">Candidates List</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+			
+                <div class="col-md-6 col-lg-3" *ngFor="let p of candidates">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img [src]="p?.photo" width="70%" alt="">
+                        </div>
+                        <a class="btn btn-default" data-dismiss="modal" routerLink="/candidature-details/{{p?.id}}"><h5>{{p?.name}}</h5></a>
+                        <p>{{p?.job_title}}</p>
+                    </div>
+                </div>
+
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<!-- <input type="submit" class="btn btn-info" value="Save"> -->
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

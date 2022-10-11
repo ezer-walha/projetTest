@@ -1,0 +1,78 @@
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Candidature Details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="single_candidates text-center" *ngIf="candidat">
+                                <div class="thumb">
+                                    <!-- <img src="assets/img/candiateds/1.png" alt=""> -->
+                                    <img [src]="candidat.photo" alt="">
+                                </div>
+                                <a routerLink="/candidature-details/{{candidat.id}}">
+                                    <h4>{{candidat.name}}</h4>
+                                </a>
+                                <p>{{candidat.job_title}}</p>
+                            </div>
+                            <!-- <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                    </div>
+                                </div> -->
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <div class="single_wrap" *ngIf="candidat">
+                            <h4>Coverlettre</h4>
+                            <p>{{candidat.coverLettre}}</p>
+                            <h4>CV</h4>
+                            <p><a [href]="candidat.cv" target="_blank">{{candidat.cv}}</a>
+                            <p></p>
+                            <h4>LinkedIn Link</h4>
+                            <p><a [href]="candidat.linkedIn" target="_blank">{{candidat.linkedIn}}</a></p>
+                        </div>
+                    </div>
+<!-- i have here the candidate mail -->
+
+                    <div class="apply_job_form white-bg">
+                        <h4>Contact Candidate</h4>
+                        <form [formGroup]="CandidateForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <input name="#" id="" cols="30" rows="10" placeholder="enter your email please here ..." formControlName="mail">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <textarea name="#" id="" cols="30" rows="10" placeholder="tape something here ..." formControlName="textarea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="submit_btn">
+                                        <button (click)="send()" class="boxed-btn3 w-100" type="submit">Send Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+

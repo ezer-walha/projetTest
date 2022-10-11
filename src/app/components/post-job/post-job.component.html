@@ -1,0 +1,156 @@
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Post A Job</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <section class="site-section" style="padding: 100;">
+    <div class="container">
+  
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2>Post A Job</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-block btn-light btn-md"><span
+                                class="icon-open_in_new mr-2"></span>Preview</a>
+                    </div>
+                    <div class="col-6">
+                        <a (click)="savejob()" class="btn btn-block btn-primary btn-md boxed-btn3">Save Job</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                  <form [formGroup]="postjob" class="p-4 p-md-5 border rounded" >
+                    <h3 class="text-black mb-5 border-bottom pb-2">Job Details</h3>
+  
+                    
+  
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="you@yourdomain.com" formControlName="email" >
+                        <div *ngIf="postjob.controls['email'].invalid&&(postjob.controls['email'].touched||postjob.controls['email'].dirty)" >
+                          <div *ngIf="postjob.controls['email'].errors?.['required']" style="color: crimson;"  >
+                          Email is required
+                          </div>
+                          <div *ngIf="postjob.controls['email'].errors?.['email']" style="color: crimson;"  >
+                            Email invalide
+                            </div>
+                        </div>
+                      </div>
+                    
+                    <div class="form-group">
+                        <label for="job-title">Job Title</label>
+                        <input type="text" class="form-control" id="job-title" placeholder="Job Title" formControlName="job_title">
+                        <div *ngIf="postjob.controls['job_title'].invalid&&(postjob.controls['job_title'].touched||postjob.controls['job_title'].dirty)" >
+                          <div *ngIf="postjob.controls['job_title'].errors?.['required']" style="color: crimson;"  >
+                          Job Title is required
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-location">Location</label>
+                        <input type="text" class="form-control" id="job-location" placeholder="e.g. New York" formControlName="location">
+                        <div *ngIf="postjob.controls['location'].invalid&&(postjob.controls['location'].touched||postjob.controls['location'].dirty)" >
+                          <div *ngIf="postjob.controls['location'].errors?.['required']" style="color: crimson;"  >
+                          Location is required
+                          </div>
+                        </div>
+                    </div>
+   
+                    <div class="form-group">
+                        <label for="job-type">Job Type</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="job_type">
+                            <option [ngValue]="" disabled>Select type</option>
+                            <option *ngFor="let type of types" [ngValue]="type.name">{{type.name}}</option>
+                            <!-- <option selected>full time</option>
+                            <option>Part Time</option> -->
+                          </select>
+                    </div>
+  
+  
+                    <div class="form-group">
+                        <div class="form-group shadow-textarea">
+                            <label for="exampleFormControlTextarea6">Job Description</label>
+                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..." formControlName="job_descrip"></textarea>
+                          </div>
+                    </div>
+  
+  
+  
+                    <h3 class="text-black my-5 border-bottom pb-2">Company Details</h3>
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" class="form-control" id="company-name" placeholder="e.g. New York" formControlName="company_name">
+                        <div *ngIf="postjob.controls['company_name'].invalid&&(postjob.controls['company_name'].touched||postjob.controls['company_name'].dirty)" >
+                          <div *ngIf="postjob.controls['company_name'].errors?.['required']" style="color: crimson;"  >
+                          Company name is required
+                          </div>
+                        </div>
+                    </div>
+  
+                    <!-- <div class="form-group">
+                        <label for="company-tagline">Location</label>
+                        <input type="text" class="form-control" id="company-tagline" placeholder="e.g. New York" >
+                        <div *ngIf="postjob.controls['tagline'].invalid&&(postjob.controls['tagline'].touched||postjob.controls['tagline'].dirty)" >
+                          <div *ngIf="postjob.controls['tagline'].errors?.['required']" style="color: crimson;"  >
+                          Location is required
+                          </div>
+                        </div>
+                    </div> -->
+  
+                    <div class="form-group">
+                        <label for="company-website">Website</label>
+                        <input type="text" class="form-control" id="company-website" placeholder="https://" formControlName="website">
+                    </div>
+  
+  
+                    <!-- <div class="form-group">
+                        <label for="company-website-tw d-block">Upload Logo</label> <br>
+                        <label class="btn btn-primary btn-md btn-file">
+                            Browse File<input type="file" formControlName="logo" hidden>
+                        </label>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="job-location">Logo</label>
+                        <input type="text" class="form-control" id="logo" placeholder="https://"
+                            formControlName="logo">
+
+                    </div>
+
+  
+                  </form>
+            </div>
+  
+  
+        </div>
+        <div class="row align-items-center mb-5">
+  
+            <div class="col-lg-4 ml-auto">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-block btn-light btn-md"><span
+                                class="icon-open_in_new mr-2"></span>Preview</a>
+                    </div>
+                    <div class="col-6">
+                        <a (click)="savejob()" class="btn btn-block btn-primary btn-md">Save Job</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>

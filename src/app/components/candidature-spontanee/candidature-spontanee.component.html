@@ -1,0 +1,154 @@
+ <!-- bradcam_area  -->
+ <div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Open Job Application</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                
+                
+                <div class="apply_job_form white-bg">
+                    <h4>spontaneous application</h4>
+                    <form [formGroup]="candidature">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    <input type="text" placeholder="Your name" formControlName="name">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['name'].invalid&&(candidature.controls['name'].touched||candidature.controls['name'].dirty)">
+                                    <div *ngIf="candidature.controls['name'].errors?.['required']"
+                                        style="color: crimson;">
+                                        Name is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    <input type="text" placeholder="Email" formControlName="email">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['email'].invalid&&(candidature.controls['email'].touched||candidature.controls['email'].dirty)">
+                                    <div *ngIf="candidature.controls['email'].errors?.['required']"
+                                        style="color: crimson;">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="candidature.controls['email'].errors?.['email']"
+                                        style="color: crimson;">
+                                        Email invalid
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md">
+                                <div class="input_field">
+                                    <input type="text" placeholder="photo">
+                                </div>
+                                
+                                    
+                                
+                            </div> -->
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    <input type="text" placeholder="photo" formControlName="photo">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['photo'].invalid&&(candidature.controls['photo'].touched||candidature.controls['photo'].dirty)">
+                                    <div *ngIf="candidature.controls['photo'].errors?.['required']"
+                                        style="color: crimson;">
+                                        photo is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    <input type="text" placeholder="Job title" formControlName="job_title">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['job_title'].invalid&&(candidature.controls['job_title'].touched||candidature.controls['job_title'].dirty)">
+                                    <div *ngIf="candidature.controls['job_title'].errors?.['required']"
+                                        style="color: crimson;">
+                                        Job Title is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    <input type="text" placeholder="LinkedIn link" formControlName="linkedIn">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['linkedIn'].invalid&&(candidature.controls['linkedIn'].touched||candidature.controls['linkedIn'].dirty)">
+                                    <div *ngIf="candidature.controls['linkedIn'].errors?.['required']"
+                                        style="color: crimson;">
+                                        LinkedIn Link is required
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                      </button>
+                                    </div>
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                                      <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
+                                    </div>
+                                    
+                                  </div>
+                            </div>  -->
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    <input type="text" placeholder="CV" formControlName="cv">
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['cv'].invalid&&(candidature.controls['cv'].touched||candidature.controls['cv'].dirty)">
+                                    <div *ngIf="candidature.controls['cv'].errors?.['required']"
+                                        style="color: crimson;">
+                                        CV is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"
+                                        formControlName="coverLettre"></textarea>
+                                </div>
+                                <div
+                                    *ngIf="candidature.controls['coverLettre'].invalid&&(candidature.controls['coverLettre'].touched||candidature.controls['coverLettre'].dirty)">
+                                    <div *ngIf="candidature.controls['coverLettre'].errors?.['required']"
+                                        style="color: crimson;">
+                                        coverLettre is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-12">
+                                <div class="input_field" formControlName="coverLettre">
+                                    <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"></textarea>
+                                </div>
+                            </div> -->
+                            <div class="col-md-12">
+                                <div class="submit_btn">
+                                    <button class="boxed-btn3 w-100" (click)="apply()">Apply Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

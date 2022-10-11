@@ -1,0 +1,109 @@
+<div class="bradcam_area bradcam_bg_1">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-12">
+              <div class="bradcam_text">
+                  <h3>Sign Up/Login</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- formulaire sign up  -->
+<section class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5">
+        <h2 class="mb-4">Sign Up To JobBoard</h2>
+        <form #signup="ngForm"  class="p-4 border rounded" (ngSubmit)="Onsignup()" >
+
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Email</label>
+              <input type="text" id="fname" class="form-control" placeholder="Email address" [(ngModel)]="user.email"  [ngModelOptions]="{standalone: true}"  >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Password</label>
+              <input type="password" id="fname" class="form-control" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" >
+            </div>
+          </div>
+          <div class="row form-group mb-4">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Re-Type Password</label>
+              <input type="password" id="fname" class="form-control" placeholder="Re-type Password" [(ngModel)]="user.pwd" [ngModelOptions]="{standalone: true}" >
+            </div>
+          </div>
+
+          <div class="row form-group mb-4">
+            <div class="col-md-12 mb-3 mb-md-0">
+            <label for="job-type">Role Type</label>
+            <select class="form-select" aria-label="Default select example" placeholder="Role" [(ngModel)]="user.role" [ngModelOptions]="{standalone: true}">
+                <option [ngValue]="null" selected disabled >Select Role</option>
+                <option *ngFor="let type of types" [ngValue]="type.name">{{type.name}}</option>
+                <!-- <option selected>full time</option>
+                <option>Part Time</option> -->
+            </select>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Sign Up" class="btn px-4 btn-primary text-white boxed-btn3">
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- formulaire log in  -->
+      <div class="col-lg-6">
+        <h2 class="mb-4">Log In To JobBoard</h2>
+        <form [formGroup]="signin" class="p-4 border rounded">
+
+          <div class="row form-group ">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Email</label>
+              <input type="text" id="fname" class="form-control" placeholder="Email address" formControlName="email" >
+            
+            <div *ngIf="signin.controls['email'].invalid&&(signin.controls['email'].touched||signin.controls['email'].dirty)" >
+              <div *ngIf="signin.controls['email'].errors?.['required']" style="color: crimson;"  >
+                Email is required
+              </div>
+              <!-- <div *ngIf="signin.controls['email'].errors?.['email']" style="color: crimson;"  >
+                Email invalid
+              </div> -->
+            </div>
+          </div>
+          </div>
+          <div class="row form-group mb-4">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Password</label>
+              <input type="password" id="fname" class="form-control" placeholder="Password" formControlName="password" >
+              <div *ngIf="signin.controls['password'].invalid&&(signin.controls['password'].touched||signin.controls['password'].dirty)" >
+                <div *ngIf="signin.controls['password'].errors?.['required']" style="color: crimson;"  >
+                Password is required
+                </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Log In" (click)="doLogin()"  class="btn px-4 btn-primary text-white boxed-btn3">
+            </div>
+          </div>
+            
+          <!-- <div *ngIf="messageverif == 'User does not exist.'" style="color: crimson;"  >
+            Merci de verifier vos données
+          </div> -->
+            
+          
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

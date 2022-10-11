@@ -1,0 +1,503 @@
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Hello admin</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!--/ bradcam_area  -->
+
+  <div class=" m-5 pl-5">
+    <!-- <a type="submit" value="Log In" class="boxed-btn3 mr-3 " (Click)="userfct()">user</a> -->
+    <!-- <a  type="submit" class="boxed-btn3 mr-3" (Click)="jobfct()">job offer</a> -->
+    <!-- <a type="submit" class="boxed-btn3" (Click)="candidatefct()">Candidates</a> -->
+    <input type="submit" value="user" (click)="userfct()"  class="btn px-4 btn-primary text-white boxed-btn3 mr-3">
+    <input type="submit" value="job offer" (click)="jobfct()"  class="btn px-4 btn-primary text-white boxed-btn3 mr-3">
+    <input type="submit" value="Candidates" (click)="candidatefct()"  class="btn px-4 btn-primary text-white boxed-btn3">
+    <!-- <button (Click)="candidatefct()"> Candidates </button> -->
+  </div>
+
+
+<div class="container-xl" *ngIf="VarAdmin == 'user'">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Manage <b>Users</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+						<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						 -->
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
+						<th>Id</th>
+						<th>Email</th>
+						<th>Role</th>
+						<!-- <th>Phone</th> -->
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let p of users">
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+						<td>{{p.id}}</td>
+						<td>{{p.email}}</td>
+						<td>{{p.role}}</td>
+						<!-- <td>(171) 555-2222</td> -->
+						<td>
+							<a href="#editEmployeeModal" class="edit" (click)="onEdit(p)" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="#deleteEmployeeModal" class="delete" (click)="delete(p.id)" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>
+					 
+				</tbody>
+			</table>
+			<!-- <div class="clearfix">
+				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+				<ul class="pagination">
+					<li class="page-item disabled"><a href="#">Previous</a></li>
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+					<li class="page-item"><a href="#" class="page-link">2</a></li>
+					<li class="page-item active"><a href="#" class="page-link">3</a></li>
+					<li class="page-item"><a href="#" class="page-link">4</a></li>
+					<li class="page-item"><a href="#" class="page-link">5</a></li>
+					<li class="page-item"><a href="#" class="page-link">Next</a></li>
+				</ul>
+			</div> -->
+		</div>
+	</div>        
+</div>
+
+<div class="container-xl" *ngIf="VarAdmin == 'job'">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Manage <b>job</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addJobModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Job offer</span></a>
+						<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						 -->
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
+						<th>Id</th>
+						<th>Email</th>
+						<th>Job Title</th>
+                        <th>Location</th>
+						<th>Job Type</th>
+						<th>Company Name</th>
+                        <th>Website</th>
+						<!-- <th>Phone</th> -->
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let v of jobs">
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+						<td>{{v.id}}</td>
+						<td>{{v.email}}</td>
+						<td>{{v.job_title}}</td>
+                        <td>{{v.location}}</td>
+						<td>{{v.job_type}}</td>
+						<td>{{v.company_name}}</td>
+                        <td>{{v.website}}</td>
+                        
+					     <!-- <td>(171) 555-2222</td> -->
+						<td>
+							<a href="#editJobModal" class="edit" (click)="onEditJob(v)" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="#deleteJobModal" class="delete" (click)="deletejob(v.id)" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>
+					 
+				</tbody>
+			</table>
+			<!-- <div class="clearfix">
+				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+				<ul class="pagination">
+					<li class="page-item disabled"><a href="#">Previous</a></li>
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+					<li class="page-item"><a href="#" class="page-link">2</a></li>
+					<li class="page-item active"><a href="#" class="page-link">3</a></li>
+					<li class="page-item"><a href="#" class="page-link">4</a></li>
+					<li class="page-item"><a href="#" class="page-link">5</a></li>
+					<li class="page-item"><a href="#" class="page-link">Next</a></li>
+				</ul>
+			</div> -->
+		</div>
+	</div>        
+</div>
+
+<div class="container-xl" *ngIf="VarAdmin == 'candidate'">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Manage <b>Candidates</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Candidat</span></a>
+						<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						 -->
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Job Title</th>
+                        <th>LinkedIn</th>
+						<!-- <th>Phone</th> -->
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let p of candidats">
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+						<td>{{p.id}}</td>
+						<td>{{p.name}}</td>
+						<td>{{p.email}}</td>
+						<td>{{p.job_title}}</td>
+						<td>{{p.linkedIn}}</td>
+						<td>
+							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="#deleteCandidatModal" (click)="deleteCan(p.id)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>
+					 
+				</tbody>
+			</table>
+			<!-- <div class="clearfix">
+				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+				<ul class="pagination">
+					<li class="page-item disabled"><a href="#">Previous</a></li>
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+					<li class="page-item"><a href="#" class="page-link">2</a></li>
+					<li class="page-item active"><a href="#" class="page-link">3</a></li>
+					<li class="page-item"><a href="#" class="page-link">4</a></li>
+					<li class="page-item"><a href="#" class="page-link">5</a></li>
+					<li class="page-item"><a href="#" class="page-link">Next</a></li>
+				</ul>
+			</div> -->
+		</div>
+	</div>        
+</div>
+
+<!-- Edit Modal HTML -->
+<div id="addEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form #addUser="ngForm" (ngSubmit)="AddUser()">
+				<div class="modal-header">						
+					<h4 class="modal-title">Add User</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<!-- <div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" required>
+					</div> -->
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Email address"  [ngModelOptions]="{standalone: true}" required>
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required>
+					</div>
+					<div class="form-group">
+						<label>Role</label>
+						<input type="text" class="form-control" placeholder="Role" [(ngModel)]="user.role" [ngModelOptions]="{standalone: true}" required>
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-success" value="Add">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Modal HTML -->
+<div id="editEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form #editUser="ngForm" (ngSubmit)="fcteditUser()">
+				<div class="modal-header">						
+					<h4 class="modal-title">Edit User</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<!-- <div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" required>
+					</div> -->
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" placeholder="{{SelectedUser.email}}"  [(ngModel)]="user2.email"   [ngModelOptions]="{standalone: true}" required>
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="text" class="form-control" placeholder="{{SelectedUser.password}}" [(ngModel)]="user2.password" [ngModelOptions]="{standalone: true}"required>
+					</div>
+					<!-- <div class="form-group">
+						<label>Role</label>
+						<input type="text" class="form-control" placeholder="{{SelectedUser.role}}"  [(ngModel)]="user2.role" [ngModelOptions]="{standalone: true}" required>
+					</div>					 -->
+					
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-info" value="Save">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title">Delete User</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<p>Are you sure you want to delete these Records?</p>
+					<p class="text-warning"><small>This action cannot be undone.</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-danger " (click)="deleteUsers()" value="Delete" >
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Modal HTML job-->
+<div id="addJobModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form [formGroup]="addJob" (ngSubmit)="AddUser()">
+				<div class="modal-header">						
+					<h4 class="modal-title">Add User</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<!-- <div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" required>
+					</div> -->
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" formControlName="email" placeholder="Email address"   required>
+					</div>
+					<div class="form-group">
+						<label>Job Title</label>
+						<input type="text" class="form-control" placeholder="Job Title" formControlName="job_title" required>
+					</div>
+					<div class="form-group">
+						<label>Location</label>
+						<input type="text" class="form-control" placeholder="Location" formControlName="location" required>
+					</div>
+					<div class="form-group">
+						<label>Job Type</label>
+						<input type="text" class="form-control" placeholder="Job Type"  formControlName="job_type" required>
+					</div>
+<!-- 
+					<div class="form-group">
+                        <label for="job-type">Job Type</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="job_type">
+                            <option value="" disabled>Select type</option>
+                            <option *ngFor="let type of types2" [ngValue]="type">{{type}}</option>
+                            <option selected>full time</option>
+                            <option>Part Time</option>
+                          </select>
+                    </div> -->
+
+					<div class="form-group">
+						<label>Description</label>
+						<input type="text" class="form-control" placeholder="Description" formControlName="job_descrip" required>
+					</div>
+					<div class="form-group">
+						<label>Company Name</label>
+						<input type="text" class="form-control" placeholder="Company Name" formControlName="company_name" required>
+					</div>
+					<div class="form-group">
+						<label>Website</label>
+						<input type="text" class="form-control" placeholder="Website URL" formControlName="website" required>
+					</div>
+					<div class="form-group">
+						<label>Logo</label>
+						<input type="text" class="form-control" placeholder="Logo URL" formControlName="logo" required>
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" (click)="savejob()" class="btn btn-success" value="Add">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Modal HTML job -->
+<div id="editJobModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form #editJob="ngForm" (ngSubmit)="fcteditJob()">
+				<div class="modal-header">						
+					<h4 class="modal-title">Edit User</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<!-- <div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" required>
+					</div> -->
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control"  [(ngModel)]="job2.email"   [ngModelOptions]="{standalone: true}" placeholder="{{SelectedJob.email}}"   required>
+					</div>
+					<div class="form-group">
+						<label>Job Title</label>
+						<input type="text" class="form-control" placeholder="{{SelectedJob.job_title}}" [(ngModel)]="job2.job_title" [ngModelOptions]="{standalone: true}" required>
+					</div>
+					<div class="form-group">
+						<label>Job Type</label>
+						<input type="text" class="form-control" placeholder="{{SelectedJob.job_type}}"  [(ngModel)]="job2.job_type" [ngModelOptions]="{standalone: true}" required>
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-info" value="Save">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Delete Modal HTML job-->
+<div id="deleteJobModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title">Delete Job</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<p>Are you sure you want to delete these Records?</p>
+					<p class="text-warning"><small>This action cannot be undone.</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-danger " (click)="deleteJobs()" value="Delete" >
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Delete Modal HTML job-->
+<div id="deleteCandidatModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title">Delete Candidat</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<p>Are you sure you want to delete these Records?</p>
+					<p class="text-warning"><small>This action cannot be undone.</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-danger " (click)="deleteCandidat()" value="Delete" >
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        // Activate tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+        
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function(){
+            if(this.checked){
+                checkbox.each(function(){
+                    this.checked = true;                        
+                });
+            } else{
+                checkbox.each(function(){
+                    this.checked = false;                        
+                });
+            } 
+        });
+        checkbox.click(function(){
+            if(!this.checked){
+                $("#selectAll").prop("checked", false);
+            }
+        });
+    });
+</script>

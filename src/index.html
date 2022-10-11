@@ -2,12 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Projetfinal</title>
+  <title>Job</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/flaticon.css">
+  <link rel="stylesheet" href="assets/css/gijgo.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/slicknav.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="assets/temp/css/custom-bs.css">
+  <link rel="stylesheet" href="assets/temp/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="assets/temp/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="assets/temp/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="assets/temp/fonts/line-icons/style.css">
+  <link rel="stylesheet" href="assets/temp/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/temp/css/animate.min.css">
+  <link rel="stylesheet" href="assets/temp/css/quill.snow.css">
+  
+  <link rel="stylesheet" href="assets/css/jquery-ui.css">
+  <link rel="stylesheet" href="assets/css/slick.css">
+  
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="assets/temp/css/style.css">  
+  
+  
+
+  <!-- admin page  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- /admin page -->
+
+
 </head>
 <body>
   <app-root></app-root>
+  <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/isotope.pkgd.min.js"></script>
+  <script src="assets/js/ajax-form.js"></script>
+  <script src="assets/js/waypoints.min.js"></script>
+  <script src="assets/js/jquery.counterup.min.js"></script>
+  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/js/scrollIt.js"></script>
+  <script src="assets/js/jquery.scrollUp.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/nice-select.min.js"></script>
+  <script src="assets/js/jquery.slicknav.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/gijgo.min.js"></script>
+
+  <script src="assets/js/gijgo.min.js"></script>
+  <!-- <script src="assets/js/jquery-ui.js"></script> -->
+
+  <script src="assets/js/range.js"></script>
+
+  <!--contact js-->
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+  <script src="assets/js/jquery.form.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
+  <script src="assets/js/mail-script.js"></script>
+
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/temp/js/jquery.min.js"></script>
+  <script src="assets/temp/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/temp/js/isotope.pkgd.min.js"></script>
+  <script src="assets/temp/js/stickyfill.min.js"></script>
+  <script src="assets/temp/js/jquery.fancybox.min.js"></script>
+  <script src="assets/temp/js/jquery.easing.1.3.js"></script>
+  
+  <script src="assets/temp/js/jquery.waypoints.min.js"></script>
+  <script src="assets/temp/js/jquery.animateNumber.min.js"></script>
+  <script src="assets/temp/js/owl.carousel.min.js"></script>
+  <script src="assets/temp/js/quill.min.js"></script>
+  
+  
+  <script src="assets/temp/js/bootstrap-select.min.js"></script>
+  
+  <script src="assets/temp/js/custom.js"></script>
+  <script>
+    $( function() {
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 24600,
+            values: [ 750, 24600 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] +"/ Year" );
+            }
+        });
+        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) + "/ Year");
+    } );
+    </script>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
 </body>
 </html>
